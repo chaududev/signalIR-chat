@@ -1,0 +1,97 @@
+﻿$bg-color: #157cce;
+$text-color: rgba(white, 0.85);
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background: $bg-color;
+    color: $text-color;
+
+    a {
+        color: $text-color;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+        color: rgba(white, 0.85);
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        padding: 10px;
+
+        h5 {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            a {
+                display: flex;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    ul {
+        overflow-y: auto;
+
+        li {
+            margin-bottom: 2px;
+
+            a {
+                display: block;
+                padding: 2px 10px;
+                font-size: 14px;
+                text-decoration: none;
+
+                &.active,
+                &:hover {
+                    background: rgba(white, 0.25);
+                }
+
+                &:before {
+                    content: "#";
+                    margin-right: 2px;
+                }
+            }
+        }
+    }
+
+    .profile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background: rgba(black, 0.1);
+        margin-top: auto;
+
+        a {
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+
+        .btn-sign-out {
+            background: none;
+            border: none;
+            display: flex;
+        }
+    }
+}

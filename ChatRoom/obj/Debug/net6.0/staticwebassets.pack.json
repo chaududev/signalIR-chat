@@ -1,0 +1,193 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ChatRoom.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ChatRoom.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\css\\_auth.scss",
+      "PackagePath": "staticwebassets\\css\\_auth.scss"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\css\\_content.scss",
+      "PackagePath": "staticwebassets\\css\\_content.scss"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\css\\_misc.scss",
+      "PackagePath": "staticwebassets\\css\\_misc.scss"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\css\\_sidebar.scss",
+      "PackagePath": "staticwebassets\\css\\_sidebar.scss"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\css\\_userslist.scss",
+      "PackagePath": "staticwebassets\\css\\_userslist.scss"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\css\\site.css.map",
+      "PackagePath": "staticwebassets\\css\\site.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\css\\site.scss",
+      "PackagePath": "staticwebassets\\css\\site.scss"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\images\\emojis\\emoji1.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji1.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\images\\emojis\\emoji2.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\images\\emojis\\emoji3.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\images\\emojis\\emoji4.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji4.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\images\\emojis\\emoji5.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji5.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\images\\emojis\\emoji6.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji6.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\images\\emojis\\emoji7.png",
+      "PackagePath": "staticwebassets\\images\\emojis\\emoji7.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\images\\screenshots\\android.png",
+      "PackagePath": "staticwebassets\\images\\screenshots\\android.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\images\\screenshots\\web.png",
+      "PackagePath": "staticwebassets\\images\\screenshots\\web.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\js\\chat.js",
+      "PackagePath": "staticwebassets\\js\\chat.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\knockout\\knockout-latest.debug.js",
+      "PackagePath": "staticwebassets\\lib\\knockout\\knockout-latest.debug.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\knockout\\knockout-latest.debug.min.js",
+      "PackagePath": "staticwebassets\\lib\\knockout\\knockout-latest.debug.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\knockout\\knockout-latest.debug.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\knockout\\knockout-latest.debug.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\knockout\\knockout-latest.js",
+      "PackagePath": "staticwebassets\\lib\\knockout\\knockout-latest.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\knockout\\knockout-latest.min.js",
+      "PackagePath": "staticwebassets\\lib\\knockout\\knockout-latest.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\knockout\\knockout-latest.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\knockout\\knockout-latest.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\microsoft-signalr\\signalr.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft-signalr\\signalr.js"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\source\\repos\\chat\\ChatRoom\\ChatRoom\\wwwroot\\lib\\microsoft-signalr\\signalr.min.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft-signalr\\signalr.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ChatRoom.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ChatRoom.props",
+      "PackagePath": "build\\ChatRoom.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ChatRoom.props",
+      "PackagePath": "buildMultiTargeting\\ChatRoom.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ChatRoom.props",
+      "PackagePath": "buildTransitive\\ChatRoom.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
