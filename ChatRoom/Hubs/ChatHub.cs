@@ -83,7 +83,6 @@ namespace ChatRoom.Hubs
             {
                 var user = _context.Users.Where(u => u.UserName == IdentityName).FirstOrDefault();
                 var userViewModel = _mapper.Map<User, UserViewModel>(user);
-                userViewModel.Device = GetDevice();
                 userViewModel.CurrentRoom = "";
 
                 if (!_Connections.Any(u => u.UserName == IdentityName))
@@ -123,14 +122,6 @@ namespace ChatRoom.Hubs
             get { return Context.User.Identity.Name; }
         }
 
-        private string GetDevice()
-        {
-            var device = Context.GetHttpContext().Request.Headers["Device"].ToString();
-            if (!string.IsNullOrEmpty(device) && (device.Equals("Desktop") || device.Equals("Mobile")))
-                return device;
-
-            return "Web";
-        }
     }
 }
 

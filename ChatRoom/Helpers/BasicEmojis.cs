@@ -10,7 +10,7 @@
             content = content.Replace(":-)", Img("emoji4.png"));
             content = content.Replace("B|", Img("emoji5.png"));
             content = content.Replace(":D", Img("emoji6.png"));
-            content = content.Replace("<3", Img("emoji7.png"));
+            content = content.Replace(":3", Img("emoji7.png"));
 
             return content;
         }

@@ -17,7 +17,7 @@ namespace ChatRoom.Service
         }
 
         public Room Add(string name, string username)
-        {
+        { 
             Room room = _repositoryRoom.FirstOrDefault(r => r.Name == name);
             if (room != null)
             {

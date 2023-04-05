@@ -226,7 +226,7 @@
                     for (var i = 0; i < data.length; i++) {
                         var isMine = data[i].fromUserName == self.myProfile().userName();
                         self.chatMessages.push(new ChatMessage(data[i].id,
-                            data[i].content,
+                            decodeURIComponent(data[i].content),
                             data[i].timestamp,
                             data[i].fromUserName,
                             data[i].fromFullName,

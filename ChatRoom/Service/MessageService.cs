@@ -3,6 +3,7 @@ using ChatRoom.IService;
 using ChatRoom.Models;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
+using System.Web;
 
 namespace ChatRoom.Service
 {
@@ -27,7 +28,7 @@ namespace ChatRoom.Service
             {
                 throw new Exception($"The room with name {roomName} was not found.");
             }
-            var msg = new Message(Regex.Replace(content, @"<.*?>", string.Empty), user, room, DateTime.Now);
+            var msg = new Message(HttpUtility.HtmlEncode(content), user, room, DateTime.Now);
             _repository.Add(msg);
             return msg;
 
