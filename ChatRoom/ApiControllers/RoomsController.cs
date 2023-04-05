@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ChatRoom.Data;
 using ChatRoom.Hubs;
+using ChatRoom.IService;
 using ChatRoom.Models;
 using ChatRoom.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -15,15 +16,13 @@ namespace ChatRoom.ApiControllers
     [ApiController]
     public class RoomsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IRoomService _service;
         private readonly IMapper _mapper;
         private readonly IHubContext<ChatHub> _hubContext;
 
-        public RoomsController(ApplicationDbContext context,
-            IMapper mapper,
-            IHubContext<ChatHub> hubContext)
+        public RoomsController(IRoomService service, IMapper mapper, IHubContext<ChatHub> hubContext)
         {
-            _context = context;
+            _service = service;
             _mapper = mapper;
             _hubContext = hubContext;
         }
@@ -31,89 +30,95 @@ namespace ChatRoom.ApiControllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RoomViewModel>>> Get()
         {
-            var rooms = await _context.Rooms
-                .Include(r => r.Admin)
-                .ToListAsync();
-
-            var roomsViewModel = _mapper.Map<IEnumerable<Room>, IEnumerable<RoomViewModel>>(rooms);
-
-            return Ok(roomsViewModel);
+            try
+            {
+                var rs = _service.GetAll();
+                if (rs == null)
+                {
+                    return NotFound();
+                }
+                return Ok(_mapper.Map<IEnumerable<Room>, IEnumerable<RoomViewModel>>(rs));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Room>> Get(int id)
         {
-            var room = await _context.Rooms.FindAsync(id);
-            if (room == null)
-                return NotFound();
-
-            var roomViewModel = _mapper.Map<Room, RoomViewModel>(room);
-            return Ok(roomViewModel);
+            try
+            {
+                var rs = _service.GetById(id);
+                if (rs == null)
+                {
+                    return NotFound();
+                }
+                return Ok(_mapper.Map<Room, RoomViewModel>(rs));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPost]
-        public async Task<ActionResult<Room>> Create(RoomAddViewModel viewmodel)
+        public async Task<ActionResult<Room>> Create(RoomAddViewModel viewModel)
         {
-            if (!ModelState.IsValid) return UnprocessableEntity(ModelState);
-            if (_context.Rooms.Any(r => r.Name == viewmodel.Name))
-                    return BadRequest("Invalid room name or room already exists");
-
-                var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-                var room = new Room(
-                    viewmodel.Name,
-                    user
-                );
-                
-                _context.Rooms.Add(room);
-                await _context.SaveChangesAsync();
-
-                var createdRoom = _mapper.Map<Room, RoomViewModel>(room);
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return UnprocessableEntity(ModelState);
+                }
+                var msg = _service.Add(viewModel.Name, User.Identity.Name);
+                var createdRoom = _mapper.Map<Room, RoomViewModel>(msg);
                 await _hubContext.Clients.All.SendAsync("addChatRoom", createdRoom);
 
-                return CreatedAtAction(nameof(Get), new { id = room.Id }, createdRoom);
+                return CreatedAtAction(nameof(Get), new { id = msg.Id }, createdRoom);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Edit(int id, RoomAddViewModel viewmodel)
+        public async Task<IActionResult> Edit(int id, RoomAddViewModel viewModel)
         {
-            if (_context.Rooms.Any(r => r.Name == viewmodel.Name))
-                return BadRequest("Invalid room name or room already exists");
-
-            var room = await _context.Rooms
-                .Include(r => r.Admin)
-                .Where(r => r.Id == id && r.Admin.UserName == User.Identity.Name)
-                .FirstOrDefaultAsync();
-
-            if (room == null)
-                return NotFound();
-
-            room.setName(viewmodel.Name);
-            await _context.SaveChangesAsync();
-
-            var updatedRoom = _mapper.Map<Room, RoomViewModel>(room);
-            await _hubContext.Clients.All.SendAsync("updateChatRoom", updatedRoom);
-
-            return Ok();
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return UnprocessableEntity(ModelState);
+                }
+                var msg = _service.Update(id,viewModel.Name, User.Identity.Name);
+                var updatedRoom = _mapper.Map<Room, RoomViewModel>(msg);
+                await _hubContext.Clients.All.SendAsync("updateChatRoom", updatedRoom);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var room = await _context.Rooms
-                .Include(r => r.Admin)
-                .Where(r => r.Id == id && r.Admin.UserName == User.Identity.Name)
-                .FirstOrDefaultAsync();
-
-            if (room == null)
-                return NotFound();
-
-            _context.Rooms.Remove(room);
-            await _context.SaveChangesAsync();
-
-            await _hubContext.Clients.All.SendAsync("removeChatRoom", room.Id);
-            await _hubContext.Clients.Group(room.Name).SendAsync("onRoomDeleted");
-
-            return Ok();
+            try
+            {
+                Room room = _service.GetById(id);
+                _service.Delete(id, User.Identity.Name);
+                await _hubContext.Clients.All.SendAsync("removeChatRoom", room.Id);
+                await _hubContext.Clients.Group(room.Name).SendAsync("onRoomDeleted");
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

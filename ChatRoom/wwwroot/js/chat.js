@@ -162,16 +162,23 @@
                 }
             });
         }
-
         self.createRoom = function () {
             var roomName = $("#roomName").val();
-            console.log(roomName);
             fetch('/api/Rooms', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({ name: roomName })
-            });
-            console.log("Daxo");
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        alert('Check the name and check the name and please change it to another name!');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                })
+                .catch(error => {
+                });
         }
 
         self.editRoom = function () {
@@ -181,7 +188,16 @@
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({ id: roomId, name: roomName })
-            });
+            }).then(response => {
+                if (!response.ok) {
+                    alert('Check the name and check the name and please change it to another name!');
+                }
+                return response.json();
+            })
+                .then(data => {
+                })
+                .catch(error => {
+                });
         }
 
         self.deleteRoom = function () {

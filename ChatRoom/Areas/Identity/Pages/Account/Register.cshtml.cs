@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
 using ChatRoom.Models;
@@ -8,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 
@@ -50,7 +50,7 @@ namespace ChatRoom.Areas.Identity.Pages.Account
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
             [Display(Name = "Username")]
-            public string UserName { get; set; }
+            public string UserName2 { get; set; }
 
             [Required]
             [EmailAddress]
@@ -58,14 +58,16 @@ namespace ChatRoom.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "The {0} must be at max {1} characters long.", MinimumLength = 8)]
             [DataType(DataType.Password)]
+            [RegularExpression(@"^(?=.*\d).{8,}$", ErrorMessage = "Mật khẩu phải chứa ít nhất 1 số và có độ dài tối thiểu là 8 ký tự.")]
             [Display(Name = "Password")]
-            public string Password { get; set; }
+            public string Password2 { get; set; }
 
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password2", ErrorMessage = "The password and confirmation password do not match.")]
+            [RegularExpression(@"^(?=.*\d).{8,}$", ErrorMessage = "Mật khẩu phải chứa ít nhất 1 số và có độ dài tối thiểu là 8 ký tự.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -81,33 +83,13 @@ namespace ChatRoom.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.UserName, Email = Input.Email };
+                var user = new User { UserName = Input.UserName2, Email = Input.Email };
                 user.setName(Input.FullName);
-                var result = await _userManager.CreateAsync(user, Input.Password);
-                if (result.Succeeded)
+                var result = await _userManager.CreateAsync(user, Input.Password2);
+                if (result.Succeeded) 
                 {
-                    _logger.LogInformation("User created a new account with password.");
-
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
-                        pageHandler: null,
-                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
-
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
-                    {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
-                    }
-                    else
-                    {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
-                    }
+                    await _signInManager.SignInAsync(user, true); 
+                    return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)
                 {
